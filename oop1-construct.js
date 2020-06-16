@@ -42,56 +42,73 @@ class Bird {
 }
 //First Bird, the Hoatzin
 const hoatzin = new Bird("Hoatzin", "herbivore");
-hoatzin.slash = () =>
-  console.log(`${hoatzin.name} cuts you with the claws on its wings!!`);
-hoatzin.hiss = () =>
-  console.log(`${hoatzin.name} hisses at you with guttural tones!`);
+hoatzin.slash = function () {
+  console.log(`${this.name} cuts you with the claws on its wings!!`);
+};
+hoatzin.hiss = function () {
+  console.log(`${this.name} hisses at you with guttural tones!`);
+};
 hoatzin.stinkLevel = 7;
 hoatzin.mohawkHeight = "2.3 Inches";
 hoatzin.wingClawLength = "1 Inch";
 
 //Second Bird, the Harpy
 const harpy = new Bird("Harpy Eagle", "carnivore");
-harpy.dive = () =>
-  console.log(`${harpy.name} dives and kills its prey on impact!`);
-harpy.roost = () => console.log(`${harpy.name} nests on the tops of trees!!`);
+harpy.dive = function () {
+  console.log(`${this.name} dives and kills its prey on impact!`);
+};
+harpy.roost = function () {
+  console.log(`${this.name} nests on the tops of trees!!`);
+};
 harpy.apex = "Apex predator of the birds";
 harpy.talons = "Largest talson of any living eagle";
 harpy.mate = "Mate for life";
 
 //Third Bird, the Hyacinth Macaw
 const macaw = new Bird("Hyacinth Macaw", "omnivore");
-macaw.crackNuts = () =>
-  console.log(`${macaw.name} cracks nuts with its hooked beak!!`);
-macaw.talk = () => console.log(`${macaw.name} wants a cracker! Tweet-tweet!!`);
+macaw.crackNuts = function () {
+  console.log(`${this.name} cracks nuts with its hooked beak!!`);
+};
+macaw.talk = function () {
+  console.log(`${this.name} wants a cracker! Tweet-tweet!!`);
+};
 macaw.largest = "Largest parrot in the world by length";
 macaw.beak = "Hooked";
 macaw.status = "Endangered";
 
 //Fourth Bird, the Spectacled Owl
 const specOwl = new Bird("Spectacled Owl", "carnivore");
-specOwl.swoop = () => console.log(`${specOwl.name} swoops down on you!!`);
-specOwl.nightSight = () => console.log(`${specOwl.name} sees you in the dark!`);
+specOwl.swoop = function () {
+  console.log(`${this.name} swoops down on you!!`);
+};
+
+specOwl.nightSight = function () {
+  console.log(`${this.name} sees you in the dark!`);
+};
 specOwl.height = "18 Inches";
 specOwl.nickname = "Knocking Owl";
 specOwl.headTurnRadius = "270 degrees";
 
 //Fifth Bird, the King Vulture
 const kingVulture = new Bird("King Vulture", "carnivore");
-kingVulture.devour = () =>
-  console.log(`${kingVulture.name} feasts on dead animals flesh.`);
-kingVulture.glide = () =>
-  console.log(`${kingVulture.name} rides thermals and air currents to travel!`);
+kingVulture.devour = function () {
+  console.log(`${this.name} feasts on dead animals flesh.`);
+};
+kingVulture.glide = function () {
+  console.log(`${this.name} rides thermals and air currents to travel!`);
+};
 kingVulture.wingspan = "6 feet";
 kingVulture.eatingHabits = "Scavenger";
 kingVulture.baldHead = "has no feathers on its head";
 
 //Sixth Bird, the Toco Toucan
 const toucan = new Bird("Toco Toucan", "omnivore");
-toucan.peck = () =>
-  console.log(`${toucan.name} pecks you in the eyes with its large beak!!`);
-toucan.frootLoop = () =>
-  console.log(`${toucan.name} says his new name is Toucan Sam`);
+toucan.peck = function () {
+  console.log(`${this.name} pecks you in the eyes with its large beak!!`);
+};
+toucan.frootLoop = function () {
+  console.log(`${this.name} says his new name is Toucan Sam`);
+};
 toucan.plummage = "Mainly black with a little white";
 toucan.beakLength = "6 Inches";
 toucan.flock = "Likes to fly with other toucans";
@@ -120,17 +137,15 @@ triangle.base = triangle.sides[0];
 triangle.height = Math.sqrt(
   Math.pow(triangle.sides[1], 2) - Math.pow(triangle.base / 2, 2)
 );
-triangle.calcArea = () => {
+triangle.calcArea = function () {
   console.log(
-    `${triangle.name}'s area is calculated to be : ${
-      0.5 * triangle.base * triangle.height
-    }`
+    `${this.name}'s area is calculated to be : ${0.5 * this.base * this.height}`
   );
 };
-triangle.calcPerimeter = () => {
+triangle.calcPerimeter = function () {
   console.log(
-    `${triangle.name}'s perimeter is calculated to be : ${
-      triangle.base + (triangle.sides[1] + triangle.sides[2])
+    `${this.name}'s perimeter is calculated to be : ${
+      this.base + (this.sides[1] + this.sides[2])
     }`
   );
 };
@@ -148,17 +163,15 @@ const rectangle = new Shape("rectangle", 4);
 
 rectangle.length = 2;
 rectangle.width = 5;
-rectangle.calcArea = () => {
+rectangle.calcArea = function () {
   console.log(
-    `${rectangle.name}'s area is calculated to be : ${
-      rectangle.length * rectangle.width
-    }`
+    `${this.name}'s area is calculated to be : ${this.length * this.width}`
   );
 };
-rectangle.calcPerimeter = () => {
+rectangle.calcPerimeter = function () {
   console.log(
-    `${rectangle.name}'s perimeter is calculated to be : ${
-      2 * rectangle.length + 2 * rectangle.width
+    `${this.name}'s perimeter is calculated to be : ${
+      2 * this.length + 2 * this.width
     }`
   );
 };
@@ -170,21 +183,21 @@ const circle = new Shape("circle", 1);
 
 circle.radius = 5;
 
-circle.calcArea = () => {
+circle.calcArea = function () {
   console.log(
-    `${circle.name}'s area is calculated to be : ${(
+    `${this.name}'s area is calculated to be : ${(
       Math.PI *
-      circle.radius ** 2
+      this.radius ** 2
     ).toFixed(2)}`
   );
 };
 
-circle.calcCircumference = () => {
+circle.calcCircumference = function () {
   console.log(
-    `${circle.name}'s circumference is calculated to be : ${(
+    `${this.name}'s circumference is calculated to be : ${(
       2 *
       Math.PI *
-      circle.radius
+      this.radius
     ).toFixed(2)}`
   );
 };

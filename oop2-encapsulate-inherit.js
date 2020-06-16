@@ -6,14 +6,9 @@
     - Review class.  It should have a rating and user property.
     -Prevent the properties from being accessed by outside code, using the encapsulation concept of "private variables".  Create methods that return the values of these private variables in case other pieces of the code need to access the data of the 4 classes.  Also create methods that allow outside code to "set" new values for the properties on the classes, without directly manipulating the values themselves. 
 
-    //your code here...
+    //your code here...*/
 
-
-
-
-
-
-
+/*
 2. Create the following classes:
     - Umbrella class.  It should have a an organization name.  It should only have a single instance.  Umbrella is the "Parent Organization" e.g. Allegis Group
     - Company class. It should have a compnay name and # of employees.  Create at least 3 different companies that are children of the Umbrella Organization.  (e.g. TEKsystems, Aerotek, etc.)
@@ -40,6 +35,4 @@ Bonus Exercise:
 Each Book instance should contain instances of the Authors, the Publishers, and the Reviews pertinent to each book.  This exercise is using the advanced encapsulation concept of "composition", reflecting a "HAS A" relationship.
 */
 
-
-
-    //your code here...
+//your code here...

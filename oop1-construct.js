@@ -36,9 +36,8 @@ class Bird {
   constructor(name, dietType) {
     this.name = name;
     this.dietType = dietType;
-    this.fly = () =>
-      console.log(`${this.name} is flapping! Up, up, and away!!`);
   }
+  fly = () => console.log(`${this.name} is flapping! Up, up, and away!!`);
 }
 //First Bird, the Hoatzin
 const hoatzin = new Bird("Hoatzin", "herbivore");
@@ -125,10 +124,10 @@ class Shape {
     this.base = null;
     this.length = null;
     this.height = null;
-    this.calcArea = () => {};
-    this.calcPerimeter = () => {};
-    this.calcCircumference = () => {};
   }
+  calcArea = () => {};
+  calcPerimeter = () => {};
+  calcCircumference = () => {};
 }
 
 const triangle = new Shape("triangle", [4, 7, 7]);

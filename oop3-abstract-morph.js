@@ -1,15 +1,19 @@
-
 /*
-1. Create a Abstract Creature class that is NOT allowed to be instantiated. Find a way to prevent this class from being instantiated with an instance.  In the Creature class, include two abstract methods.  move(), and act().  These methods are NOT allowed to be invoked from the Abstract class, so throw an error in these methods if they are invoked by any inherited sub-classes.  
+1. Create a Abstract Creature class that is NOT allowed to be instantiated. Find a way to prevent this 
+class from being instantiated with an instance.  In the Creature class, include two abstract methods.  
+move(), and act().  These methods are NOT allowed to be invoked from the Abstract class, so throw an error
+in these methods if they are invoked by any inherited sub-classes.  
 
 Create at least 3 sub-classes that inherit from the Abstract Creature Class.  Example sub-classes are: 
     -Human
     -Dinosaur
     -Bird
-    -Reptile
+    -Reptile 
     -Fish
 
-These sub-classes MUST implement the abstract methods of move() and act(), which are found on the abstract Creature class. In addition to the 2 abstract methods, implement 1 unique method on each sub-class.  Also, each sub-class MUST have at least 2 unique property fields on them.  Example property fields are:
+These sub-classes MUST implement the abstract methods of move() and act(), which are found on the abstract
+Creature class. In addition to the 2 abstract methods, implement 1 unique method on each sub-class.  Also, 
+each sub-class MUST have at least 2 unique property fields on them.  Example property fields are:
     -name
     -weight
     -food
@@ -17,88 +21,211 @@ These sub-classes MUST implement the abstract methods of move() and act(), which
 
 */
 
-    class Creature {
-        //your code here...
+class Creature {
+  //your code here...
+  constructor() {
+    if (this.constructor == Creature) {
+      throw new Error("This class is not available for use");
     }
+  }
+  move() {
+    throw new Error("This method is not available for use");
+  }
+  act() {
+    throw new Error("This method is not available for use");
+  }
+}
 
-    class Human extends Creature {
-        //your code here...
-    }
+class Human extends Creature {
+  //your code here...
+  constructor(name, weight) {
+    super();
+    this.name = name;
+    this.weight = weight;
+  }
+  move() {
+    console.log("Hey I'm WALKING here!!");
+  }
+  act() {
+    console.log(
+      `Sigh...I wish I could do something about my weight. I weigh ${this.weight} pounds!`
+    );
+  }
+  talk() {
+    console.log(`Hi, my name is ${this.name}! Blah, blah, blah`);
+  }
+}
 
+const billy = new Human("Billy", 142);
+//const bil = new Creature("Billy", 142);
+// console.log(bil)
+billy.move();
+billy.act();
+billy.talk();
 
+class Dragon extends Creature {
+  //your code here...
+  constructor(breathType, age) {
+    super();
+    this.breathType = breathType;
+    this.age = age;
+  }
+  move() {
+    console.log("The dragon spread its wings and takes to the skies");
+  }
+  act() {
+    console.log(
+      `Sigh...You humans are like mayflies. I have lived for ${this.age} centuries!`
+    );
+  }
+  breathe() {
+    console.log(`This creature breathed ${this.breathType} all over you`);
+  }
+}
 
+const smaug = new Dragon("fire", 12);
+smaug.move();
+smaug.act();
+smaug.breathe();
 
+class Fish extends Creature {
+  //your code here...
+  constructor(diet, waterType) {
+    super();
+    this.diet = diet;
+    this.waterType = waterType;
+  }
+  move() {
+    console.log(
+      "The fish swam from one side to the body of water to the other"
+    );
+  }
+  act() {
+    console.log(
+      `Bleh!! I only swim in ${this.waterType}! I might be a fish, but I do have standards.`
+    );
+  }
+  dive() {
+    console.log(`The fish dove deep into the ${this.waterType}.`);
+  }
+}
+const catfish = new Fish("sea crabs", "saltwater");
+catfish.move();
+catfish.act();
+catfish.dive();
 /*
-2. For the following Person class, modify the class methods, so the sub-class methods will successfully fire.  For the Teacher method, a set of methods have already been set up.  For the Student class, it will be up to you to determine how to set up the methods to fire in the Student sub-class.  :
+2. For the following Person class, modify the class methods, so the sub-class methods will
+successfully fire.  For the Teacher method, a set of methods have already been set up. 
+For the Student class, it will be up to you to determine how to set up the methods to fire
+in the Student sub-class.  :
 */
 
 class Person {
-    name;
+  name;
+  constructor(name) {
+    this.name = name;
+  }
 
-    eat() {
-        console.log(this.name + " is eating");
-    }
+  eat() {
+    console.log(this.name + " is eating");
+  }
 
-    sleep = () => {
-        console.log(this.name + " is sleeping");
-    }
+  sleep = () => {
+    console.log(this.name + " is sleeping");
+  };
 
-    code = function() {
-        console.log(this.name + " is coding");
-    }
+  code = function () {
+    console.log(this.name + " is coding");
+  };
 
-    repeat = function() {
-        console.log(this.name + " is repeating the above steps, yet another time");
-    }
+  repeat() {
+    console.log(this.name + " is repeating the above steps, yet another time");
+  }
 
-    explain() {
-        //this function should contain a console.log() explaining what you had to do to get the correct functions to work, and the reasoning behind what you did.
-        console.log("this explain method should contain explain what you had to do to get the correct functions to work, and the reasoning behind what you did.");
-    }
-
+  explain() {
+    //this function should contain a console.log() explaining what you had to do to
+    // get the correct functions to work, and the reasoning behind what you did.
+    console.log(
+      "Changed the teacher's sleep method to an arrow function because the parent class's sleep method was also a arrow function."
+    );
+    console.log(
+      "Changed the person's repeat method to a regular function to match the teacher class's repeat method so it would be overrode."
+    );
+    console.log(
+      "Arrow functions are saved in the object's field, but regular function are saved in the objects prototype."
+    );
+    console.log(
+      "The constructor checks for methods and attributes in the following order: child's field, parent's field, child's prototype, and finally the parent's prototype."
+    );
+    console.log(
+      "To make sure the child's methods are overwriting the inherited methods, you must code the method so the constructor reaches the desired method first."
+    );
+    console.log(
+      "this explain method should contain explain what you had to do to get the correct functions to work, and the reasoning behind what you did."
+    );
+  }
 }
-
 
 class Teacher extends Person {
+  //refactor the methods in this Teacher class, so all of these methods override the methods in the Person super class.
 
-    //refactor the methods in this Teacher class, so all of these methods override the methods in the Person super class.  
+  constructor(name) {
+    super(name);
+    this.name = name;
+  }
 
-    constructor(name) {
-        super(name);
-        this.name = name;
-    }
+  eat() {
+    console.log(this.name + " loves to teach before eating");
+  }
 
-    eat() {
-        console.log(this.name + " loves to teach before eating");
-    }
+  sleep = () => {
+    console.log(this.name + " sleeps after preparing the lesson plan");
+  };
 
-    sleep() {
-        console.log(this.name + " sleeps after preparing the lesson plan");
-    }
+  code = () => {
+    console.log(this.name + " codes first, then teaches it the next day.");
+  };
 
-    code = () => {
-        console.log(this.name + " codes first, then teaches it the next day.");
-    }
-
-    repeat() {
-        console.log(this.name + " teaches, codes, eats, sleeps, and repeats");
-    }
+  repeat() {
+    console.log(this.name + " teaches, codes, eats, sleeps, and repeats");
+  }
 }
-
 
 class Student extends Person {
-    //set up your methods in this student class, so all of these methods will override the methods from the super class.
+  //set up your methods in this student class, so all of these methods will override the methods from the super class.
+  //eat method should print out - <stduent name> studies, then eats
+  //sleep method should print out, <student name> studies coding so much, that they dream about it in their sleep
+  //code method should print out, <student name> was first overwhelmed by coding, but kept at it, and now has become a coding guru!
+  //repeat method should print out, <student name> keeps on studying, coding, eating, and sleeping, and puts it all on repeat.
+  constructor(name) {
+    super(name);
+    this.name = name;
+  }
+  eat() {
+    console.log(this.name + " studies, then eats");
+  }
 
-    //eat method should print out - <stduent name> studies, then eats
+  sleep = () => {
+    console.log(
+      this.name +
+        " studies coding so much, that they dream about it in their sleep"
+    );
+  };
 
-    //sleep method should print out, <student name> studies coding so much, that they dream about it in their sleep
+  code = () => {
+    console.log(
+      this.name +
+        " was first overwhelmed by coding, but kept at it, and now has become a coding guru!"
+    );
+  };
 
-    //code method should print out, <student name> was first overwhelmed by coding, but kept at it, and now has become a coding guru!
-
-    //repeat method should print out, <student name> keeps on studying, coding, eating, and sleeping, and puts it all on repeat.  
-
+  repeat() {
+    console.log(
+      this.name +
+        " keeps on studying, coding, eating, and sleeping, and puts it all on repeat."
+    );
+  }
 }
-
 
 const teacher = new Teacher("Dr. Teacher");
 
@@ -118,33 +245,32 @@ student.sleep();
 student.code();
 student.repeat();
 
-
-
-
-//****************************************************************************************************************************************************************************************   
+//****************************************************************************************************************************************************************************************
 //Bonus Exercise:
 
 //3. Consider the following class:
 
 class Cook {
+  prepare(food1, food2, food3) {
+    console.log("The cook is cooking " + food1, food2, food3);
+  }
 
-    prepare(food1,food2,food3) {
-        console.log("The cook is cooking " + food1, food2, food3);
-    }
+  prepare = function () {
+    console.log("The cook is cooking");
+  };
 
-    prepare = function() {
-        console.log('The cook is cooking');
-    }
-
-    explain = () => {
-        console.log("what could you do to get the prepare function to print out the food items that are being passed in to the function?  Once you figure it out, Write down your thought process in this explain method.");
-    }
-
+  explain = () => {
+    console.log(
+      "what could you do to get the prepare function to print out the food items that are being passed in to the function?  Once you figure it out, Write down your thought process in this explain method."
+    );
+    console.log(
+      "Comment out or delete the second prepare function. Since the constructor checks the fields before the prototype, the function expression was always being found and ran first"
+    );
+  };
 }
 
 const cook = new Cook();
 
-cook.prepare("turkey","salami","pizza");
+cook.prepare("turkey", "salami", "pizza");
 
 cook.explain();
-
